@@ -1,0 +1,223 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <assert.h>
+using namespace std;
+class Bus{
+protected:
+	string tipo_, origen_, destino_;
+	int hora_, precio_;
+	int asientos_, count;
+	public: 
+	Bus(string tipo, int asientos, string origen, string destino, int precio, int hora){
+	tipo_=tipo;
+    origen_=origen;
+    destino_=destino;
+    hora_=hora;
+    precio_=precio;
+    asientos_=asientos;
+    count=0;
+	}
+	void info(){
+		cout<< "Origen: "<<origen_ << endl;
+		cout<< "Destino: "<<destino_ << endl;
+		cout<< "Tipo: "<<tipo_ << endl;
+		cout<< "Hora:  "<<hora_ << endl;
+		cout<< "Precio:  "<<precio_<< endl;
+	}
+    void listarAsientos() {
+    vector <int> arasientos(asientos_);
+    for(int ix=0;ix <asientos_;ix++){
+    	arasientos.push_back(ix+1);
+        cout << "Asientos disponibles: ";
+        for (int ix = 0; ix<asientos_; ix++)
+        {  
+            if(arasientos[ix] == ix+1) 
+            {
+               cout << ix+1 << " "<<endl;
+            }
+        }
+        cout << endl;
+        cout << "Asientos vendidos: ";
+        for (int ix=0; ix < asientos_; ix++)
+        {
+            if(arasientos[ix] != ix+1)
+            {
+                cout << ix+1 << ": " << arasientos[ix] << endl;
+            }
+        }
+    }
+}
+    bool venderAsiento(int asiento, string rut) {
+     	assert(count<asiento);
+     	vector <int> arasientos_(asientos_);
+    for(int ix=0;ix <asientos_;ix++){
+    	arasientos_.push_back(ix+1);
+        if(arasientos_[asiento-1] == ix ) {
+            arasientos_[asiento-1] = rut;
+            count++;
+            return true;
+        }
+        return false;
+    }
+}
+};
+class Bus_SemiCama: public Bus{
+public:
+     Bus_SemiCama( string origen, string destino, int precio, int hora):
+     Bus("Semi-Cama", "45", origen, destino,  precio, hora){
+     }
+    void info(){
+        cout<< "Origen: "<<origen_ << endl;
+        cout<< "Destino: "<<destino_ << endl;
+        cout<< "Tipo: "<<tipo_ << endl;
+        cout<< "Hora:  "<<hora_ << endl;
+        cout<< "Precio:  "<<precio_<< endl;
+    }
+     void listarAsientos() {
+        cout << "Asientos disponibles: ";
+        
+        for (int ix = 0; ix<45; ix++)
+        {  
+        vector <int> arasiento_(asientos_);
+        for(int ix=0;ix <45;ix++){
+    	arasientos_.push_back(ix+1);
+            if(arasiento_[ix]==ix+1) 
+            {
+               cout << ix+1 << " "<<endl;
+            }
+        }
+        cout << endl;
+        cout << "Asientos vendidos: ";
+        for (int ix=0; ix < asientos_; ix++)
+        {
+        vector <int> arasien(asientos_);
+        for(int ix=0;ix <45;ix++){
+    	arasien.push_back(ix+1);
+            if(arasien[ix]= ix+1)
+            {
+                cout << ix+1 << ": " << arasientos[ix] << endl;
+            }
+        }
+    }
+    bool venderAsiento(int asiento, string rut) {
+        assert(count<45);
+        if(arasiento[asiento-1] == ix) {
+            arasientos[asiento-1] = rut;
+            count++
+            return true;
+        }
+        return false;
+};
+class Bus_SalonCama: public Bus{
+public:
+     Bus_SalonCama(string origen, string destino, int precio, int hora):
+     Bus("Salon-Cama","30", origen, destino,  precio, hora){
+     vector <int> arasie(30);
+     for(int ix=0;ix <asientos_;ix++){
+    	arasie.push_back(ix+1);
+     }
+     void info(){
+        cout<< "Origen: "<<origen_ << endl;
+        cout<< "Destino: "<<destino_ << endl;
+        cout<< "Tipo: "<<tipo_ << endl;
+        cout<< "Hora:  "<<hora_ << endl;
+        cout<< "Precio:  "<<precio_<< endl;
+    }
+     void listarAsientos() {
+        cout << "Asientos disponibles: ";
+        for (int ix = 0; ix<30; ix++)
+        {  
+            if(arasie[ix] == ix+1) 
+            {
+               cout << ix+1 << " "<<endl;
+            }
+        }
+        cout << endl;
+        cout << "Asientos vendidos: ";
+        for (int ix=0; ix <30; ix++)
+        {
+            if(arasie[ix] != ix+1)
+            {
+                cout << ix+1 << ": " << arasientos[ix] << endl;
+            }
+        }
+    }
+     bool venderAsiento(int asiento, string rut) {
+        assert(count<30);
+        if(arasie[asiento-1]== ix) {
+            arasie[asiento-1] = rut;
+            count++
+            return true;
+        }
+        return false;
+};
+class Bus_Premium: public Bus{
+public:
+     Bus_Premium(string origen, string destino, int precio, int hora):
+     Bus("Premium", "20", origen, destino,  precio, hora){
+     }
+      void info(){
+        cout<< "Origen: "<<origen_ << endl;
+        cout<< "Destino: "<<destino_ << endl;
+        cout<< "Tipo: "<<tipo_ << endl;
+        cout<< "Hora:  "<<hora_ << endl;
+        cout<< "Precio:  "<<precio_<< endl;
+        vector <int> a_(asientos_);
+    for(int ix=0;ix <a_;ix++){
+    	a_.push_back(ix+1);
+    }
+     void listarAsientos() {
+        cout << "Asientos disponibles: ";
+        for (int ix = 0; ix<20; ix++)
+        {  
+            if(a_[ix] == ix+1) 
+            {
+               cout << ix+1 << " "<<endl;
+            }
+        }
+        cout << endl;
+        cout << "Asientos vendidos: ";
+        for (int ix=0; ix < 20; ix++)
+        {
+            if(a_)[ix]!= ix+1)
+            {
+                cout << ix+1 << ": " << a_[ix] << endl;
+            }
+        }
+    }
+     bool venderAsiento(int asiento, string rut) {
+        assert(count<20);
+        if(a_[asiento-1] == ix) {
+            a_[asiento-1] = rut;
+            count++
+            return true;
+        }
+        return false;
+ }
+class Sistema{
+protected:
+	vector <Bus> buses_;
+	Sistema(int buses){
+		buses_.reserve(buses);
+	}
+    void agendar_Bus( Bus a){
+    	buses_.push_back(a);
+    }
+    void listar_agenda(){
+      for(int ix=0; ix<buses_.size();ix++){
+          cout<< buses_[ix+1]<<endl;
+          cout<< buses_[ix+1].info()<<endl;
+      }
+  }
+    bool venderPasaje (int bus, int asiento, string rut){
+        assert(bus<buses_.size())
+        if (buses_[bus-1].venderAsiento(asiento, rut) == false) {
+            cout << "El asiento ya está vendido.\n";
+            return false;
+        }
+        return true;
+    }	
+};
+};
